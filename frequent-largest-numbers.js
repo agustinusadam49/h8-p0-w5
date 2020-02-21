@@ -15,7 +15,6 @@ function sorting(arrNumber) {
 function getTotal(arrNumber) {
     // code di sini
     if (arrNumber.length !== 0) {
-        // var arrNumber = sorting(arrNumber)
         var count = 0
         for (i = 0; i < arrNumber.length; i++) {
             if (arrNumber[i] === arrNumber[0]) {
