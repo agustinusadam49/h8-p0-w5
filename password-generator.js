@@ -1,27 +1,5 @@
-/*
-Problem
-Diberikan function changeVocals, reverseWord, setLowerUpperCase, removeSpaces, dan passwordGenerator
-
-Pada function passwordGenerator implementasikan requirement dibawah ini untuk membuat password (harus berurutan):
-
-1. Ganti semua huruf vokal menggunakan function changeVocals dengan aturan huruf vokal yang diganti akan menjadi 
-    huruf setelah huruf vokal itu (ex: a -> b, i -> j, u -> v, e -> f, o -> p, A -> B, I -> J, U -> V, E -> F, O -> P)
-
-2. Balikkan/reverse kata yang sudah kita ganti huruf vokalnya menggunakan reverseWord
-
-3. Gunakan function setLowerUpperCase untuk mengganti huruf besar menjadi kecil dan sebaliknya
-
-4. Gunakan function removeSpaces untuk menghilangkan semua spasi di dalam string yang sudah kita manipulasi
-
-NOTE:
-Semua manipulasi string (changeVocals, reverseWord, setLowerUpperCase, removeSpaces) diletakkan 
-di passwordGenerator dan return password-nya dari function ini juga
-*/
-
 function changeVocals (str) {
     //code di sini
-    // var kamus = 'abcdefghijklmnopqrstuvwxyz'
-    // var vocalDict = 'aiueo'
     var newWord = ''
     var huruf = ''
     for (i = 0; i < str.length; i++) {
@@ -75,7 +53,6 @@ function changeVocals (str) {
 
 function reverseWord (str) {
     //code di sini
-    // var str = changeVocals(str)
     var newWord = ''
     for (i = 1; i <= str.length; i++) {
         newWord += str[str.length - i]
@@ -85,7 +62,6 @@ function reverseWord (str) {
 
 function setLowerUpperCase (str) {
     //code di sini
-    // var str = reverseWord(str)
     var arrKalimat = []
     for (i = 0; i < str.length; i++) {
         arrKalimat.push(str[i])
@@ -113,7 +89,6 @@ function setLowerUpperCase (str) {
 
 function removeSpaces (str) {
     //code di sini
-    // var str = setLowerUpperCase(str)
     var newWord = ''
     for (i = 0; i < str.length; i++) {
         if (str[i] !== ' ') {
