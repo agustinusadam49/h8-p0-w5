@@ -34,8 +34,8 @@ function reverseWord(str) {
 
 function setLowerUpperCase(str) {
     var thePassword = ''
-    var lowDict = 'abcdefghijklmnopqrstuvwxyz'
     for (m = 0; m < str.length; m++) {
+        var lowDict = 'abcdefghijklmnopqrstuvwxyz'
         var uppDict = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
         for (n = 0; n < lowDict.length; n++) {
             if (lowDict[n] === str[m]) {
