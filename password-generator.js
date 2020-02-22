@@ -1,102 +1,61 @@
 function changeVocals (str) {
     //code di sini
-    var newWord = ''
-    var huruf = ''
-    for (i = 0; i < str.length; i++) {
-        if (str[i] == 'a') {
-            huruf = 'b'
-            newWord += huruf
-            huruf = ''
-        } else if (str[i] == 'i') {
-            huruf = 'j'
-            newWord += huruf
-            huruf = ''
-        } else if (str[i] == 'u') {
-            huruf = 'v'
-            newWord += huruf
-            huruf = ''
-        } else if (str[i] == 'e') {
-            huruf = 'f'
-            newWord += huruf
-            huruf = ''
-        } else if (str[i] == 'o') {
-            huruf = 'p'
-            newWord += huruf
-            huruf = ''
-        } else if (str[i] == 'A') {
-            huruf = 'B'
-            newWord += huruf
-            huruf = ''
-        } else if (str[i] == 'I') {
-            huruf = 'J'
-            newWord += huruf
-            huruf = ''
-        } else if (str[i] == 'U') {
-            huruf = 'V'
-            newWord += huruf
-            huruf = ''
-        } else if (str[i] == 'E') {
-            huruf = 'F'
-            newWord += huruf
-            huruf = ''
-        } else if (str[i] == 'O') {
-            huruf = 'P'
-            newWord += huruf
-            huruf = ''
+    var temp = ''
+    var check = ''
+    var letter = ''
+    var vocal = 'aiueoAIUEO'
+    var subsLetter = 'bjvfpBJVFP'
+    for (i = 0; i < str.length; i ++) {
+        for (j = 0; j < vocal.length; j++) {
+            if (vocal[j] === str[i]) {
+                check = 'yes'
+                letter = subsLetter[j]
+                j = vocal.length
+            } else {
+                check = 'no'
+            }
+        }
+        if (check == 'yes') {
+            temp += letter 
         } else {
-            newWord += str[i]
-        }
-
-    }
-    return newWord
-}
-
-function reverseWord (str) {
-    //code di sini
-    var newWord = ''
-    for (i = 1; i <= str.length; i++) {
-        newWord += str[str.length - i]
-    } 
-    return newWord
-}
-
-function setLowerUpperCase (str) {
-    //code di sini
-    var arrKalimat = []
-    for (i = 0; i < str.length; i++) {
-        arrKalimat.push(str[i])
-    }
-    
-    var lowerDict = 'abcdefghijklmnopqrstuvwxyz '
-    var upperDict = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ '
-    
-    for (i = 0; i < arrKalimat.length; i++) {
-        for (j = 0; j < lowerDict.length; j++)
-        if (arrKalimat[i] == lowerDict[j]) {
-            arrKalimat[i] = upperDict[j]
-        } else if (str[i] == upperDict[j]) {
-            arrKalimat[i] = lowerDict[j]
+            temp += str[i]
         }
     }
-    
-    var newKalimat = ''
-    for (k = 0; k < arrKalimat.length; k++) {
-        newKalimat += arrKalimat[k]
-    }
-    return newKalimat
-
+    return temp
 }
 
-function removeSpaces (str) {
-    //code di sini
-    var newWord = ''
-    for (i = 0; i < str.length; i++) {
-        if (str[i] !== ' ') {
-            newWord += str[i]
+function reverseWord(str) {
+    var temp = ''
+    for (k = 1; k <= str.length; k++) {
+        temp += str[str.length - k]
+    }
+    return temp
+}
+
+function setLowerUpperCase(str) {
+    var thePassword = ''
+    var lowDict = 'abcdefghijklmnopqrstuvwxyz'
+    for (m = 0; m < str.length; m++) {
+        var uppDict = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+        for (n = 0; n < lowDict.length; n++) {
+            if (lowDict[n] === str[m]) {
+                thePassword += uppDict[n]
+            } else if (uppDict[n] === str[m]) {
+                thePassword += lowDict[n]
+            }
         }
     }
-    return newWord
+    return thePassword
+}
 
+function removeSpace(str) {
+    var temp = ''
+    for (l = 0; l < str.length; l++) {
+        if (str[l] !== ' ') {
+            temp += str[l]
+        }
+    }
+    return temp
 }
 
 function passwordGenerator (name) {
@@ -104,9 +63,9 @@ function passwordGenerator (name) {
     if (name.length > 4) {
         var vocalHasChanged = changeVocals(name)
         var wordHasReversed = reverseWord(vocalHasChanged)
-        var lowerUpper = setLowerUpperCase(wordHasReversed)
-        var hasil = removeSpaces(lowerUpper)
-        return hasil
+        var subsCamelCase = setLowerUpperCase(wordHasReversed)
+        var wordUnspace = removeSpace(subsCamelCase)
+        return wordUnspace
     } else {
         var message = "Minimal karakter yang diinputkan adalah 5 karakter"
         return message
